@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     private int direction = 1;
     private float speed = 2f;
     [SerializeField]
-    private GameObject slider; 
+    private GameObject slider;
+    private Text pointText;
+    private readonly string ENEMY_TAG = "Enemy";
+    private readonly string COLLECTABLE_TAG = "Collectable";
     void Start()
     {
-        
+        this.pointText = GameObject.Find("Canvas/Point Text").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -51,6 +55,20 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             this.direction *= -1;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(this.ENEMY_TAG))
+        {
+            Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag(this.COLLECTABLE_TAG))
+        {
+            Destroy(collision.gameObject);
+            this.pointText.text = (int.Parse(this.pointText.text) + 1).ToString();
         }
     }
 }
