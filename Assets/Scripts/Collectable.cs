@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    private float speed = 0.005f;
+    public static float speed = 0.005f;
     private readonly string PLAYER_TAG = "Player";
     [SerializeField]
     private GameObject spawner;

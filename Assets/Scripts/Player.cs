@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     private int direction = 1;
-    private float speed = 2f;
+    public static float speed = 2f;
+    private float lastPoints = 0;
     [SerializeField]
     private GameObject slider;
     private Text pointText;
@@ -28,7 +29,7 @@ public class Player : MonoBehaviour
     void movePlayer()
     {
         Vector3 translate = new Vector3(
-            this.speed * Time.deltaTime * this.direction, 
+            speed * Time.deltaTime * this.direction, 
             this.transform.position.y, 
             this.transform.position.z
         );
@@ -69,6 +70,20 @@ public class Player : MonoBehaviour
         {
             Destroy(collision.gameObject);
             this.pointText.text = (int.Parse(this.pointText.text) + 1).ToString();
+            this.increaseSpeed();
+        }
+    }
+
+    private void increaseSpeed()
+    {
+        if (((int.Parse(this.pointText.text) - this.lastPoints) == 5) && this.lastPoints <= 75)
+        {
+            this.lastPoints = int.Parse(this.pointText.text);
+            Enemy.speed *= 1.1f;
+            Collectable.speed *= 1.1f;
+            speed *= 1.1f;
+            Spawner.minSpawnTime *= 0.9f;
+            Spawner.maxSpawnTime *= 0.9f;
         }
     }
 }
