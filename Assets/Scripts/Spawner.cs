@@ -10,6 +10,9 @@ public class Spawner : MonoBehaviour
     private GameObject slider;
     [SerializeField]
     private GameObject collectable;
+    public static float minSpawnTime = 2f;
+    public static float maxSpawnTime = 5f;
+
     void Start()
     {
         StartCoroutine(this.spawn());
@@ -25,7 +28,7 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(2, 5));
+            yield return new WaitForSeconds(Random.Range(minSpawnTime, maxSpawnTime));
 
             float xScale = this.slider.transform.localScale.x;
             int spawnLocation = Random.Range(0, 3);

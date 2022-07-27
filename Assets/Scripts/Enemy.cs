@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private float speed = 0.005f;
+    public static float speed = 0.005f;
     [SerializeField]
     private GameObject spawner;
 

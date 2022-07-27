@@ -11,6 +11,11 @@ public class UpdateUI : MonoBehaviour
     {
         this.versionText = GameObject.Find("Canvas/Version Text").GetComponent<Text>();
         this.versionText.text = "version: " + Application.version;
+        Enemy.speed = 0.005f; ;
+        Collectable.speed = 0.005f;
+        Player.speed = 2f;
+        Spawner.minSpawnTime = 2f;
+        Spawner.maxSpawnTime = 5f;
     }
 
     // Update is called once per frame
