@@ -37,12 +37,4 @@ public class Collectable : MonoBehaviour
         position.y -= speed;
         transform.position = position;
     }
-
-    void OnCollisionEnter2D(Collision2D collision2D)
-    {
-        if (collision2D.gameObject.CompareTag(this.PLAYER_TAG))
-        {
-            Destroy(collision2D.gameObject);
-        }
-    }
 }
