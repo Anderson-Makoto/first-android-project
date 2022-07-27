@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(this.ENEMY_TAG))
         {
-            Destroy(this.gameObject);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
         }
 
         if (collision.gameObject.CompareTag(this.COLLECTABLE_TAG))

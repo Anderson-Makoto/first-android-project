@@ -48,8 +48,6 @@ public class Spawner : MonoBehaviour
             {
                 obj.transform.position = new Vector3((xScale / 2), yLocation, zLocation);
             }
-
-            Debug.Log(obj.transform.position);
         }
     }
 }
