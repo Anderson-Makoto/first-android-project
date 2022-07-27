@@ -63,7 +63,14 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(this.ENEMY_TAG))
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+            int highScore = PlayerPrefs.GetInt("highScore");
+
+            if (int.Parse(this.pointText.text) > highScore)
+            {
+                PlayerPrefs.SetInt("highScore", int.Parse(this.pointText.text));
+            }
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene("High Score");
         }
 
         if (collision.gameObject.CompareTag(this.COLLECTABLE_TAG))
