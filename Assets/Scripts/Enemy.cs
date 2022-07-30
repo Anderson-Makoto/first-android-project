@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public static float speed = 0.005f;
+    public static float speed = 3f;
     [SerializeField]
     private GameObject spawner;
 
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
     void moveEnemy()
     {
         Vector3 position = this.transform.position;
-        position.y -= speed;
+        position.y -= speed * Time.deltaTime;
         transform.position = position;
     }
 }

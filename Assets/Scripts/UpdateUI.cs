@@ -13,8 +13,8 @@ public class UpdateUI : MonoBehaviour
         this.versionText = GameObject.Find("Canvas/Version Text").GetComponent<Text>();
         this.highScoreText = GameObject.Find("Canvas/High Score").GetComponent<Text>();
         this.versionText.text = "version: " + Application.version;
-        Enemy.speed = 0.005f; ;
-        Collectable.speed = 0.005f;
+        Enemy.speed = 3f;
+        Collectable.speed = 3f;
         Player.speed = 2f;
         Spawner.minSpawnTime = 2f;
         Spawner.maxSpawnTime = 5f;

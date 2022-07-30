@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    public static float speed = 0.005f;
+    public static float speed = 3f;
     private readonly string PLAYER_TAG = "Player";
     [SerializeField]
     private GameObject spawner;
@@ -17,7 +17,7 @@ public class Collectable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.moveEnemy();
+        this.moveCollectable();
         this.die();
     }
 
@@ -31,10 +31,10 @@ public class Collectable : MonoBehaviour
         }
     }
 
-    void moveEnemy()
+    void moveCollectable()
     {
         Vector3 position = this.transform.position;
-        position.y -= speed;
+        position.y -= speed * Time.deltaTime;
         transform.position = position;
     }
 }
