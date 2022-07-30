@@ -32,8 +32,8 @@ public class HighScore : MonoBehaviour
 
     private void resetSpeed()
     {
-        Enemy.speed = 0.005f; ;
-        Collectable.speed = 0.005f;
+        Enemy.speed = 3f; ;
+        Collectable.speed = 3f;
         Player.speed = 2f;
         Spawner.minSpawnTime = 2f;
         Spawner.maxSpawnTime = 5f;
